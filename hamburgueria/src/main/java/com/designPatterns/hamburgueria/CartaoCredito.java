@@ -1,7 +1,10 @@
 package com.designPatterns.hamburgueria;
 
+import lombok.AllArgsConstructor;
+
 import java.math.BigDecimal;
 
+@AllArgsConstructor
 public class CartaoCredito implements IFormaPagamento{
 
     private String numeroCartao;

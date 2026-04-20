@@ -1,8 +1,13 @@
 package com.designPatterns.hamburgueria;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pedido {
 
     private BigDecimal valorTotal;

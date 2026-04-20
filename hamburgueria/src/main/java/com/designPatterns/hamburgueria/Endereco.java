@@ -1,5 +1,8 @@
 package com.designPatterns.hamburgueria;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Endereco {
 
     private String rua;

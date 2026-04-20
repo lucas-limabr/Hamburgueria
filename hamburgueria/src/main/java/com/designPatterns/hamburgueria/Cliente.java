@@ -1,5 +1,10 @@
 package com.designPatterns.hamburgueria;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
 
     private String nome;

@@ -1,28 +1,30 @@
 package com.designPatterns.hamburgueria;
 
+import java.math.BigDecimal;
+
 public class ComboFridayFactory implements AbstractFactoryCombo{
     @Override
-    public Ingrediente definirCarne() {
-        return new Carne();
+    public Ingrediente definirCarne(String tipo, String ponto, String descricao) {
+        return new Carne(tipo, ponto, descricao);
     }
 
     @Override
-    public Ingrediente definirQueijo() {
-        return new Queijo();
+    public Ingrediente definirQueijo(String tipo, String descricao) {
+        return new Queijo(tipo, descricao);
     }
 
     @Override
-    public Ingrediente definirPao() {
-        return new Pao();
+    public Ingrediente definirPao(String tipo, String descricao) {
+        return new Pao(tipo, descricao);
     }
 
     @Override
-    public Ingrediente definirSalada() {
-        return new Salada();
+    public Ingrediente definirSalada(String descricao) {
+        return new Salada(descricao);
     }
 
     @Override
-    public Adicional definirAdicional() {
-        return new Bacon();
+    public Adicional definirAdicional(Produto produto, String descricao, BigDecimal preco) {
+        return new Bacon(produto, descricao, preco);
     }
 }
