@@ -1,18 +1,26 @@
 package com.designPatterns.hamburgueria;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public abstract class HamburguerDecorator implements Produto {
-    public Produto produto;
 
-    public HamburguerDecorator(){}
+    private Produto produto;
 
-    public HamburguerDecorator(Produto produto){
-        this.produto = produto;
+    @Override
+    public BigDecimal getPrecoBase() {
+        return this.produto.getPrecoBase().add(this.getValorAcrescido());
     }
 
-    public BigDecimal getValorAcrescido()
-    {
-        return null;
+    @Override
+    public String getDescricao() {
+        return this.produto.getDescricao() + " + " + this.getDescricaoDecorador();
     }
+
+    public abstract BigDecimal getValorAcrescido();
+    public abstract String getDescricaoDecorador();
 }

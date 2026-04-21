@@ -1,34 +1,32 @@
 package com.designPatterns.hamburgueria;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
+@Data
 public abstract class Adicional extends HamburguerDecorator {
 
-    public Adicional(Produto produto, String descricao, BigDecimal preco){
-        super(produto);
-        this.descricao = descricao;
-        this.preco = preco;
-    }
-
-    public Adicional(String descricao, BigDecimal preco){
-        this.descricao = descricao;
-        this.preco = preco;
-    }
-
     private BigDecimal preco;
-    private String descricao;
+    private String descricaoAdicional;
 
-    @Override
-    public BigDecimal getPrecoBase() {
-        return null;
+    public Adicional(Produto produto, String descricaoAdicional, BigDecimal preco){
+        super(produto);
+        this.descricaoAdicional = descricaoAdicional;
+        this.preco = preco;
     }
 
-    @Override
-    public String getDescricao() {
-        return "";
+    public Adicional(String descricaoAdicional, BigDecimal preco){
+        this.descricaoAdicional = descricaoAdicional;
+        this.preco = preco;
     }
+
+    public abstract BigDecimal getValorAcrescido();
+    public abstract String getDescricaoDecorador();
 }
