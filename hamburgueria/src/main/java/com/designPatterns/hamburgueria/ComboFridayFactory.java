@@ -2,7 +2,7 @@ package com.designPatterns.hamburgueria;
 
 import java.math.BigDecimal;
 
-public class ComboFridayFactory implements AbstractFactoryCombo{
+public class ComboFridayFactory extends Combo{
     @Override
     public Ingrediente definirCarne(String tipo, String ponto, String descricao) {
         return new Carne(tipo, ponto, descricao);

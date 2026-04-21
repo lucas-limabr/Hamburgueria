@@ -13,6 +13,6 @@ public class Pix implements IFormaPagamento{
 
     @Override
     public boolean processarPagamento() {
-        return false;
+        return true;
     }
 }
