@@ -2,7 +2,7 @@ package com.designPatterns.hamburgueria;
 
 import lombok.Getter;
 
-public class PedidoAguardandoConfirmacao {
+public class PedidoAguardandoConfirmacao extends EstadoPedido {
 
     private PedidoAguardandoConfirmacao() {};
     @Getter
@@ -19,6 +19,11 @@ public class PedidoAguardandoConfirmacao {
 
     public boolean recusar(Pedido pedido) {
         pedido.setEstadoPedido(PedidoRecusado.getInstance());
+        return true;
+    }
+
+    public boolean cancelar(Pedido pedido) {
+        pedido.setEstadoPedido(PedidoCancelado.getInstance());
         return true;
     }
 }

@@ -16,9 +16,4 @@ public class PagamentoPedidoProcessado extends EstadoPedido{
         pedido.setEstadoPedido(PedidoAguardandoConfirmacao.getInstance());
         return true;
     }
-
-    public boolean cancelar(Pedido pedido) {
-        pedido.setEstadoPedido(PedidoCancelado.getInstance());
-        return true;
-    }
 }
