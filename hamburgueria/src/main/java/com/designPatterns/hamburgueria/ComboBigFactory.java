@@ -13,23 +13,13 @@ public class ComboBigFactory extends Combo {
     }
 
     @Override
-    public Carne definirCarne(String tipo, String ponto, String descricao) {
-        return new Carne(tipo, ponto, descricao);
+    public Angus definirCarne(String ponto) {
+        return new Angus("Angus", ponto, "Carne");
     }
 
     @Override
-    public Queijo definirQueijo(String tipo, String descricao) {
-        return new Queijo(tipo, descricao);
-    }
-
-    @Override
-    public Pao definirPao(String tipo, String descricao) {
-        return new Pao(tipo, descricao);
-    }
-
-    @Override
-    public Salada definirSalada(String descricao) {
-        return new Salada(descricao);
+    public Brioche definirPao() {
+        return new Brioche("Brioche", "Pão");
     }
 
     @Override

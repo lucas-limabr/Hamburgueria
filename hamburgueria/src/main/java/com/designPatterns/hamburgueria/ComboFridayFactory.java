@@ -6,24 +6,15 @@ import java.math.BigDecimal;
 
 @NoArgsConstructor
 public class ComboFridayFactory extends Combo{
+
     @Override
-    public Ingrediente definirCarne(String tipo, String ponto, String descricao) {
-        return new Carne(tipo, ponto, descricao);
+    public Picanha definirCarne(String ponto) {
+        return new Picanha("Picanha", ponto, "Picanha");
     }
 
     @Override
-    public Ingrediente definirQueijo(String tipo, String descricao) {
-        return new Queijo(tipo, descricao);
-    }
-
-    @Override
-    public Ingrediente definirPao(String tipo, String descricao) {
-        return new Pao(tipo, descricao);
-    }
-
-    @Override
-    public Ingrediente definirSalada(String descricao) {
-        return new Salada(descricao);
+    public Australiano definirPao() {
+        return new Australiano("Australiano", "Pão");
     }
 
     @Override

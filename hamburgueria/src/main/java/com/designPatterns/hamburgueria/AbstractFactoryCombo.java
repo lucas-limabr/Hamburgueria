@@ -4,9 +4,7 @@ import java.math.BigDecimal;
 
 public interface AbstractFactoryCombo {
 
-    Ingrediente definirCarne(String tipo, String ponto, String descricao);
-    Ingrediente definirQueijo(String tipo, String descricao);
-    Ingrediente definirPao(String tipo, String descricao);
-    Ingrediente definirSalada(String descricao);
+    Carne definirCarne(String ponto);
+    Pao definirPao();
     Adicional definirAdicional(Produto produto);
 }
