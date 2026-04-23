@@ -51,7 +51,7 @@ public class HamburgueriaApplication {
         ProdutoTemIngrediente comboItem2 = new ProdutoTemIngrediente(paoCombo, burguerCombo);
         ProdutoTemIngrediente comboItem3 = new ProdutoTemIngrediente(queijoCombo, burguerCombo);
         ProdutoTemIngrediente comboItem4 = new ProdutoTemIngrediente(saladaCombo, burguerCombo);
-        Adicional presuntoCombo = combo.definirAdicional(burguerCombo, "Presunto", valorMonetario);
+        Adicional presuntoCombo = combo.definirAdicional(burguerCombo);
 
         Delivery delivery = new Delivery("010", e1, p1);
 

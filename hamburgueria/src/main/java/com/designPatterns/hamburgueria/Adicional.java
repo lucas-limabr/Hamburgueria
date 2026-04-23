@@ -27,6 +27,10 @@ public abstract class Adicional extends HamburguerDecorator {
         this.preco = preco;
     }
 
+    public Adicional(Produto produto){
+        super(produto);
+    }
+
     public abstract BigDecimal getValorAcrescido();
     public abstract String getDescricaoDecorador();
 }

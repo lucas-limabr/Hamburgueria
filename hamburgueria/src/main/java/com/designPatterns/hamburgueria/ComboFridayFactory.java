@@ -1,7 +1,10 @@
 package com.designPatterns.hamburgueria;
 
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
+@NoArgsConstructor
 public class ComboFridayFactory extends Combo{
     @Override
     public Ingrediente definirCarne(String tipo, String ponto, String descricao) {
@@ -24,7 +27,7 @@ public class ComboFridayFactory extends Combo{
     }
 
     @Override
-    public Adicional definirAdicional(Produto produto, String descricao, BigDecimal preco) {
-        return new Bacon(produto, descricao, preco);
+    public Adicional definirAdicional(Produto produto) {
+        return new Bacon(produto, "Bacon", new BigDecimal("5.00"));
     }
 }

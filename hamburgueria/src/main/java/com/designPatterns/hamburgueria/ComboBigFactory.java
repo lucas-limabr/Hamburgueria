@@ -1,7 +1,10 @@
 package com.designPatterns.hamburgueria;
 
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
+@NoArgsConstructor
 public class ComboBigFactory extends Combo {
 
     public ComboBigFactory(boolean ativo, PromocaoCombo promocaoCombo)
@@ -30,7 +33,7 @@ public class ComboBigFactory extends Combo {
     }
 
     @Override
-    public Presunto definirAdicional(Produto produto, String descricao, BigDecimal preco) {
-        return new Presunto(produto, descricao, preco);
+    public Presunto definirAdicional(Produto produto) {
+        return new Presunto(produto, "Presunto", new BigDecimal("4.00"));
     }
 }

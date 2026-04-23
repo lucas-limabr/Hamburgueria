@@ -8,5 +8,5 @@ public interface AbstractFactoryCombo {
     Ingrediente definirQueijo(String tipo, String descricao);
     Ingrediente definirPao(String tipo, String descricao);
     Ingrediente definirSalada(String descricao);
-    Adicional definirAdicional(Produto produto, String descricao, BigDecimal preco);
+    Adicional definirAdicional(Produto produto);
 }
