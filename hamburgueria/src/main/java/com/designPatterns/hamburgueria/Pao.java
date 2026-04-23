@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class Pao extends Ingrediente {
+public abstract class Pao extends Ingrediente {
 
     private String tipo;
 

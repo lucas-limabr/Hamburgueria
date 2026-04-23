@@ -25,10 +25,10 @@ public class HamburgueriaApplication {
 
         Hamburguer burguer = new Hamburguer("Hamburguer muito bom", "Divino", valorMonetario, 2.0);
 
-        Ingrediente pao = new Pao("Brioche", "Pão");
+        Ingrediente pao = new Brioche("Brioche", "Pão");
         Ingrediente queijo = new Queijo("Muçarela", "Queijo");
         Ingrediente salada = new Salada("Salada");
-        Ingrediente carne = new Carne("Angus", "ao ponto", "Carne");
+        Ingrediente carne = new Angus("Angus", "ao ponto", "Carne");
 
         ProdutoTemIngrediente addPao = new ProdutoTemIngrediente(pao, burguer);
         ProdutoTemIngrediente addCarne = new ProdutoTemIngrediente(carne, burguer);

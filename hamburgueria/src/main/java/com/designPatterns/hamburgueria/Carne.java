@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class Carne extends Ingrediente{
+public abstract class Carne extends Ingrediente{
 
     private String tipo;
     private String ponto;
