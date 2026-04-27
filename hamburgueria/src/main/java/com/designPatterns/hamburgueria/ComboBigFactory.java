@@ -7,9 +7,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class ComboBigFactory extends Combo {
 
-    public ComboBigFactory(boolean ativo, PromocaoCombo promocaoCombo)
-    {
-        super(ativo, promocaoCombo);
+    public ComboBigFactory(boolean ativo) {
+        super(ativo);
     }
 
     @Override

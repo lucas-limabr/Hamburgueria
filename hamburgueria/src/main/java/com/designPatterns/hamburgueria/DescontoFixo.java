@@ -1,11 +1,20 @@
 package com.designPatterns.hamburgueria;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
-public class DescontoFixo implements PromocaoCombo{
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class DescontoFixo implements PromocaoLinha {
+
+    private BigDecimal valorDesconto;
 
     @Override
-    public BigDecimal calculaDesconto() {
-        return null;
+    public BigDecimal calculaDesconto(BigDecimal precoBase) {
+        return precoBase.subtract(valorDesconto);
     }
 }

@@ -14,7 +14,7 @@ public class HamburguerDecoratorTest {
     @BeforeEach
     void setUp() {
         precoBase = new BigDecimal("30.00");
-        burguer = new Hamburguer("Hambúrguer irresistível com muito queijo", "Divino", precoBase, 1.0);
+        burguer = new LinhaPremium("Hambúrguer irresistível com muito queijo", "Divino", precoBase, 1.0);
     }
 
     @Test

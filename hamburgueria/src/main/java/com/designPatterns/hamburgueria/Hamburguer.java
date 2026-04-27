@@ -1,24 +1,23 @@
 package com.designPatterns.hamburgueria;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @NoArgsConstructor
-public class Hamburguer implements Produto {
+@Data
+public abstract class Hamburguer implements Produto {
 
     private String descricao;
     private String titulo;
     private BigDecimal precoBase;
     private Double quantidade;
-
-    @Getter
+    private PromocaoLinha promocaoAdicional;
     private Adicional adicional;
-    @Getter
     private Carne carne;
-    @Getter
     private Pao pao;
 
     public Hamburguer(String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
@@ -45,6 +44,8 @@ public class Hamburguer implements Produto {
     public String getTipoPao() {
         return pao.getTipo();
     }
+
+    public abstract BigDecimal calculaPrecoNaPromocao();
 
     @Override
     public BigDecimal getPrecoBase() {

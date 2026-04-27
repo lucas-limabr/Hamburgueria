@@ -23,7 +23,7 @@ public class HamburgueriaApplication {
 
         Pedido p1 = new Pedido(valorMonetario, LocalDateTime.now(), new BigDecimal("5.00"), null, c1, pix);
 
-        Hamburguer burguer = new Hamburguer("Hamburguer muito bom", "Divino", valorMonetario, 2.0);
+        Hamburguer burguer = new LinhaPremium("Hamburguer muito bom", "Divino", valorMonetario, 2.0);
 
         Ingrediente pao = new Brioche("Brioche", "Pão");
         Ingrediente queijo = new Queijo("Muçarela", "Queijo");
@@ -40,8 +40,8 @@ public class HamburgueriaApplication {
         Bebida bebida = new Bebida(ovo, "Coca", valorMonetario, 600.0);
         Bebida bebida2 = new Bebida(bebida, "Guaraná Antártica", valorMonetario, 600.0);
 
-        ComboBigFactory combo = new ComboBigFactory(true, null);
-        Hamburguer burguerCombo = new Hamburguer("Hamburguer top", "Combo Big", valorMonetario, 1.0);
+        ComboBigFactory combo = new ComboBigFactory(true);
+        Hamburguer burguerCombo = new LinhaChicken("Hamburguer top", "Combo Big", valorMonetario, 1.0);
         Carne carneCombo = combo.definirCarne("ao ponto");
         Pao paoCombo = combo.definirPao();
 
