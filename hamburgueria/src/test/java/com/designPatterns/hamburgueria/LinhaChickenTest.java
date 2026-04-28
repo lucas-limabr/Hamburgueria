@@ -26,14 +26,14 @@ class LinhaChickenTest {
     @Test
     @DisplayName("Deve retornar o preço do hambúrguer com desconto fixo (default 5.00) aplicado para linha chicken")
     void deveRetornarDescontoFixoParaLinhaChicken() {
-        linhaChicken.setPromocaoAdicional(descontoFixo);
+        linhaChicken.setPromocaoLinha(descontoFixo);
         assertEquals(new BigDecimal("35.00"), linhaChicken.calculaPrecoNaPromocao());
     }
 
     @Test
     @DisplayName("Deve retornar o preço do hambúrguer com desconto percentual (default 15%) aplicado para linha chicken")
     void deveRetornarDescontoPercentualParaLinhaChicken() {
-        linhaChicken.setPromocaoAdicional(descontoPercentual);
+        linhaChicken.setPromocaoLinha(descontoPercentual);
         assertEquals(new BigDecimal("34.00"), linhaChicken.calculaPrecoNaPromocao());
     }
 }

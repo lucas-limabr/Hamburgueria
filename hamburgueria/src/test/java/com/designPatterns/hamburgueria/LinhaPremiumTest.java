@@ -25,14 +25,14 @@ class LinhaPremiumTest {
     @Test
     @DisplayName("Deve retornar o preço do hambúrguer com desconto fixo (default 5.00) aplicado para linha premium")
     void deveRetornarDescontoFixoParaLinhaPremium() {
-        linhaPremium.setPromocaoAdicional(descontoFixo);
+        linhaPremium.setPromocaoLinha(descontoFixo);
         assertEquals(new BigDecimal("45.00"), linhaPremium.calculaPrecoNaPromocao());
     }
 
     @Test
     @DisplayName("Deve retornar o preço do hambúrguer com desconto percentual aplicado para linha premium (15%), porém, este desconto não deve ultrapassar o limite definido na linha Premium, que por default é de 10% sobre seu valor, assim, os 15% não será aplicado")
     void deveRetornarDescontoPercentualParaLinhaPremiumComLimiteDesconto() {
-        linhaPremium.setPromocaoAdicional(descontoPercentual);
+        linhaPremium.setPromocaoLinha(descontoPercentual);
         assertEquals(new BigDecimal("45.00"), linhaPremium.calculaPrecoNaPromocao());
     }
 
@@ -40,7 +40,7 @@ class LinhaPremiumTest {
     @DisplayName("Deve retornar o preço do hambúrguer com desconto percentual de 5% aplicado para linha premium")
     void deveRetornarDescontoPercentualParaLinhaPremium() {
         descontoPercentual.setPercentualDesconto(new BigDecimal("0.05"));
-        linhaPremium.setPromocaoAdicional(descontoPercentual);
+        linhaPremium.setPromocaoLinha(descontoPercentual);
         assertEquals(new BigDecimal("47.50"), linhaPremium.calculaPrecoNaPromocao());
     }
 }

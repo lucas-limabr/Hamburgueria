@@ -15,7 +15,7 @@ public abstract class Hamburguer implements Produto {
     private String titulo;
     private BigDecimal precoBase;
     private Double quantidade;
-    private PromocaoLinha promocaoAdicional;
+    private PromocaoLinha promocaoLinha;
     private Adicional adicional;
     private Carne carne;
     private Pao pao;
