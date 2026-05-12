@@ -7,12 +7,16 @@ import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class Entrega {
+public abstract class Entrega extends Setor {
 
     private Pedido pedido;
 
-    public BigDecimal calculaTaxaEntrega()
-    {
+    public Entrega(Setor responsavelEtapaSeguinte) {
+        super(responsavelEtapaSeguinte);
+        super.responsabilidadeFuncional.add(PedidoDespachado.getInstance());
+    }
+
+    public BigDecimal calculaTaxaEntrega() {
         return null;
     }
 }

@@ -10,4 +10,13 @@ public class Delivery extends Entrega{
         this.endereco = endereco;
         super(pedido);
     }
+
+    public Delivery(Setor responsavelEtapaSeguinte) {
+        super(responsavelEtapaSeguinte);
+    }
+
+    @Override
+    public String getDescricaoSetor() {
+        return "Setor responsável: Entrega via delivery";
+    }
 }
