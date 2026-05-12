@@ -17,6 +17,6 @@ public class LinhaChicken extends Hamburguer{
 
     @Override
     public BigDecimal calculaPrecoNaPromocao() {
-        return this.getPromocaoAdicional().calculaDesconto(this.getPrecoBase());
+        return this.getPromocaoLinha().calculaDesconto(this.getPrecoBase());
     }
 }
