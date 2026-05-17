@@ -5,10 +5,11 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Observable;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pedido {
+public class Pedido extends Observable {
 
     private BigDecimal valorTotal;
     private LocalDateTime dataPedido;
@@ -18,6 +19,9 @@ public class Pedido {
     private IFormaPagamento formaPagamento;
 
     public EstadoPedido setEstadoPedido(EstadoPedido estadoPedido) {
+        this.estadoPedido = estadoPedido;
+        setChanged();
+        notifyObservers(this.estadoPedido);
         return this.estadoPedido = estadoPedido;
     }
 
