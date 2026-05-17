@@ -32,7 +32,7 @@ class ClienteTest {
     @DisplayName("Deve realizar pedido quando é passado algum método de pagamento")
     void deveRealizarPedidoQuandoHaPagamento() {
         Pix pix = new Pix(new BigDecimal("0.05"));
-        pedido = new Pedido(new BigDecimal("40.0"), LocalDateTime.now(), BigDecimal.ZERO, null, pix);
+        pedido = new Pedido(new BigDecimal("40.0"), LocalDateTime.now(), BigDecimal.ZERO, null, cliente, pix);
         sacola = new Sacola(pedido, cliente);
         assertInstanceOf(PedidoRealizado.class, cliente.realizarPedido(sacola));
     }
