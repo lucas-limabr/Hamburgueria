@@ -21,7 +21,7 @@ public class HamburgueriaApplication {
 
         Pix pix = new Pix(valorMonetario);
 
-        Pedido p1 = new Pedido(valorMonetario, LocalDateTime.now(), new BigDecimal("5.00"), null, c1, pix);
+        Pedido p1 = new Pedido(valorMonetario, LocalDateTime.now(), new BigDecimal("5.00"), null, pix);
 
         Hamburguer burguer = new LinhaPremium("Hamburguer muito bom", "Divino", valorMonetario, 2.0);
 
@@ -51,7 +51,7 @@ public class HamburgueriaApplication {
 
         Delivery delivery = new Delivery("010", e1, p1);
 
-        Pedido p2 = new Pedido(valorMonetario, LocalDateTime.now(), new BigDecimal("5.00"), null, c1, pix);
+        Pedido p2 = new Pedido(valorMonetario, LocalDateTime.now(), new BigDecimal("5.00"), null, pix);
         Bebida bebida3 = new Bebida(valorMonetario, "Fanta", 600.0);
         Bebida bebida4 = new Bebida(valorMonetario, "H20", 250.0);
         ItemPedido itemPedido2 = new ItemPedido(null, p2, bebida3, 1.0);

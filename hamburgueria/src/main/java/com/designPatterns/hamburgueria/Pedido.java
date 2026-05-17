@@ -1,6 +1,7 @@
 package com.designPatterns.hamburgueria;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -14,14 +15,19 @@ public class Pedido {
     private LocalDateTime dataPedido;
     private BigDecimal cupomDesconto;
     private EstadoPedido estadoPedido;
-    private Cliente cliente;
     private IFormaPagamento formaPagamento;
 
     public EstadoPedido setEstadoPedido(EstadoPedido estadoPedido) {
         return this.estadoPedido = estadoPedido;
     }
 
-    public EstadoPedido getEstado() {return estadoPedido;};
+    public EstadoPedido getEstado() {
+        return estadoPedido;
+    }
+
+    public EstadoPedido realizarPedido() {
+        return formaPagamento != null ? PedidoRealizado.getInstance() : PedidoRecusado.getInstance();
+    }
 
     public boolean aceitar() {
         return estadoPedido.aceitar(this);
