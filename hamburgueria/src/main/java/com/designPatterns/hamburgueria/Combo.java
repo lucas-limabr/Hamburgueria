@@ -1,21 +1,19 @@
 package com.designPatterns.hamburgueria;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
+public class Combo extends Hamburguer {
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-public abstract class Combo implements AbstractFactoryCombo {
+    public Combo(AbstractFactoryCombo factoryCombo, String pontoCarne, String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
+        super(factoryCombo, pontoCarne, descricao, titulo, precoBase, quantidade);
+    }
 
-    private boolean ativo;
+    @Override
+    public BigDecimal calculaPrecoNaPromocao() {
+        if (this.getPromocaoLinha() == null) {
+            return this.getPrecoBase();
+        }
 
-    public LocalDateTime definirDataLimiteUso()
-    {
-    return LocalDateTime.now().plusDays(15);
+        return this.getPromocaoLinha().calculaDesconto(this.getPrecoBase());
     }
 }

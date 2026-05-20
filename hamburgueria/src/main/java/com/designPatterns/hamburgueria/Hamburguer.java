@@ -27,7 +27,8 @@ public abstract class Hamburguer implements Produto {
         this.quantidade = quantidade;
     }
 
-    public Hamburguer(AbstractFactoryCombo factoryCombo, String pontoCarne) {
+    public Hamburguer(AbstractFactoryCombo factoryCombo, String pontoCarne, String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
+        this(descricao, titulo, precoBase, quantidade);
         this.adicional = factoryCombo.definirAdicional(this);
         this.carne = factoryCombo.definirCarne(pontoCarne);
         this.pao = factoryCombo.definirPao();
@@ -56,4 +57,6 @@ public abstract class Hamburguer implements Produto {
     public String getDescricao() {
         return descricao;
     }
+
+
 }

@@ -40,7 +40,7 @@ public class HamburgueriaApplication {
         Bebida bebida = new Bebida(ovo, "Coca", valorMonetario, 600.0);
         Bebida bebida2 = new Bebida(bebida, "Guaraná Antártica", valorMonetario, 600.0);
 
-        ComboBigFactory combo = new ComboBigFactory(true);
+        ComboBigFactory combo = new ComboBigFactory(true, 20);
         Hamburguer burguerCombo = new LinhaChicken("Hamburguer top", "Combo Big", valorMonetario, 1.0);
         Carne carneCombo = combo.definirCarne("ao ponto");
         Pao paoCombo = combo.definirPao();

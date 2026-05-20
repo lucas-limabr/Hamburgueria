@@ -1,17 +1,43 @@
 package com.designPatterns.hamburgueria;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class HamburguerTest {
 
+    String tituloComboBig;
+    String descricaoComboBig;
+    BigDecimal precoBaseComboBig;
+    Double quantidadeComboBig;
+
+    String tituloComboFriday;
+    String descricaoComboFriday;
+    BigDecimal precoBaseComboFriday;
+    Double quantidadeComboFriday;
+
+    @BeforeEach
+    void setUp() {
+        tituloComboBig = "Combo Big";
+        descricaoComboBig = "Combo saboroso de carne Angus";
+        precoBaseComboBig = new BigDecimal("40.00");
+        quantidadeComboBig = 1.0;
+
+        tituloComboFriday = "Combo Friday";
+        descricaoComboFriday = "Combo irresistível de carne Picanha";
+        precoBaseComboFriday = new BigDecimal("50.00");
+        quantidadeComboFriday = 1.0;
+    }
+
     @Test
     @DisplayName("O combo big instancia um objeto concreto Presunto do tipo Adicional, portanto, a descrição deve ser Presunto")
     void deveRetornarDescricaoAdicionalDePresuntoParaComboBig() {
         AbstractFactoryCombo factory = new ComboBigFactory();
-        Hamburguer hamburguer = new LinhaPremium(factory, "ao ponto");
+        Hamburguer hamburguer = new LinhaPremium(factory, "ao ponto", tituloComboBig, descricaoComboBig, precoBaseComboBig, quantidadeComboBig);
         assertEquals("Presunto", hamburguer.getDescricaoAdicional());
     }
 
@@ -19,7 +45,7 @@ class HamburguerTest {
     @DisplayName("O combo friday instancia um objeto concreto Bacon do tipo Adicional, portanto, a descrição deve ser Bacon")
     void deveRetornarDescricaoAdicionalDeBaconParaComboFriday() {
         AbstractFactoryCombo factory = new ComboFridayFactory();
-        Hamburguer hamburguer = new LinhaChicken(factory, "mal passada");
+        Hamburguer hamburguer = new LinhaChicken(factory, "mal passada", tituloComboFriday, descricaoComboFriday, precoBaseComboFriday, quantidadeComboFriday);
         assertEquals("Bacon", hamburguer.getDescricaoAdicional());
     }
 
@@ -27,7 +53,7 @@ class HamburguerTest {
     @DisplayName("O combo friday instancia um objeto concreto Picanha do tipo Carne, portanto, o tipo da carne deve ser Picanha")
     void deveRetornarTipoCarneAngusParaComboFriday() {
         AbstractFactoryCombo factory = new ComboFridayFactory();
-        Hamburguer hamburguer = new LinhaPremium(factory, "mal passada");
+        Hamburguer hamburguer = new LinhaPremium(factory, "mal passada", tituloComboFriday, descricaoComboFriday, precoBaseComboFriday, quantidadeComboFriday);
         assertEquals("Picanha", hamburguer.getTipoCarne());
     }
 
@@ -35,7 +61,7 @@ class HamburguerTest {
     @DisplayName("O combo big instancia um objeto concreto Angus do tipo Carne, portanto, o tipo da carne deve ser Angus")
     void deveRetornarTipoCarneAngusParaComboBig() {
         AbstractFactoryCombo factory = new ComboBigFactory();
-        Hamburguer hamburguer = new LinhaPremium(factory, "mal passada");
+        Hamburguer hamburguer = new LinhaPremium(factory, "mal passada", tituloComboBig, descricaoComboBig, precoBaseComboBig, quantidadeComboBig);
         assertEquals("Angus", hamburguer.getTipoCarne());
     }
 }

@@ -18,8 +18,8 @@ public class LinhaPremium extends Hamburguer {
         super(descricao, titulo, precoBase, quantidade);
     }
 
-    public LinhaPremium(AbstractFactoryCombo factoryCombo, String pontoCarne) {
-        super(factoryCombo, pontoCarne);
+    public LinhaPremium(AbstractFactoryCombo factoryCombo, String pontoCarne, String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
+        super(factoryCombo, pontoCarne, descricao, titulo, precoBase, quantidade);
     }
 
     @Override
