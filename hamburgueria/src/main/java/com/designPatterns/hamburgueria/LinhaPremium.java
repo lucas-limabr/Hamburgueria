@@ -24,6 +24,11 @@ public class LinhaPremium extends Hamburguer {
 
     @Override
     public BigDecimal calculaPrecoNaPromocao() {
+         if(this.getPromocaoLinha() == null)
+        {
+            return this.getPrecoBase();
+        }
+        
         BigDecimal descontoCalculado = this.getPromocaoLinha().calculaDesconto(this.getPrecoBase());
         BigDecimal valorMinimo = this.defineValorMinimoParaPromocao();
 
