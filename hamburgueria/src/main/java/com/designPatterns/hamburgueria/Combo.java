@@ -1,5 +1,45 @@
 package com.designPatterns.hamburgueria;
 
-public class Combo {
+import lombok.Data;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
+@Data
+public class Combo implements Produto {
+
+    private ArrayList<Produto> produtos = new ArrayList<>();
+    private String nome;
+
+    public Combo(String nome) {
+        this.nome = nome;
+    }
+
+    public boolean addProduto(Produto produto) {
+        return this.produtos.add(produto);
+    }
+
+    public boolean removeProduto(Produto produto) {
+        return this.produtos.remove(produto);
+    }
+
+    @Override
+    public BigDecimal getPrecoBase() {
+        BigDecimal precoTotal = BigDecimal.ZERO;
+        for (Produto item : produtos) {
+            precoTotal = item.getPrecoBase().add(precoTotal);
+        }
+        return precoTotal;
+    }
+
+    @Override
+    public String getDescricao() {
+        StringBuilder descricao = new StringBuilder();
+        descricao.append(nome);
+        for (Produto item : produtos) {
+            descricao.append("\n\t");
+            descricao.append(item.getDescricao());
+        }
+        return descricao.toString();
+    }
 }

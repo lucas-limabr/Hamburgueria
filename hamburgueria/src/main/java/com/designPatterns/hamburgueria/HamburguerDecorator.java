@@ -13,14 +13,21 @@ public abstract class HamburguerDecorator implements Produto {
 
     @Override
     public BigDecimal getPrecoBase() {
+        if (this.produto == null) {
+            return this.getValorAcrescido();
+        }
         return this.produto.getPrecoBase().add(this.getValorAcrescido());
     }
 
     @Override
     public String getDescricao() {
+        if (this.produto == null) {
+            return this.getDescricaoDecorador();
+        }
         return this.produto.getDescricao() + " + " + this.getDescricaoDecorador();
     }
 
     public abstract BigDecimal getValorAcrescido();
+
     public abstract String getDescricaoDecorador();
 }
