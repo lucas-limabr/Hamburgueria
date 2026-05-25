@@ -1,10 +1,8 @@
 package com.designPatterns.hamburgueria;
 
-import java.math.BigDecimal;
+public interface AbstractFactoryHamburguer {
 
-public interface AbstractFactoryCombo {
-
-    Carne definirCarne(String ponto);
+    Carne definirCarne();
     Pao definirPao();
     Adicional definirAdicional(Produto produto);
 }

@@ -1,11 +1,10 @@
 package com.designPatterns.hamburgueria;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 @NoArgsConstructor
 @Data
@@ -20,6 +19,16 @@ public abstract class Hamburguer implements Produto {
     private Carne carne;
     private Pao pao;
 
+    public static Hamburguer defineLinha(String nomeLinha, AbstractFactoryHamburguer factoryCombo, String descricao, String titulo, BigDecimal precoBase, Double quantidade)
+    {
+        Map<String, Hamburguer> linha =  Map.of(
+                "Linha Premium", new LinhaPremium(factoryCombo, descricao, titulo, precoBase, quantidade),
+                "Linha Chicken", new LinhaChicken(factoryCombo, descricao, titulo, precoBase, quantidade)
+        );
+
+        return linha.get(nomeLinha);
+    }
+
     public Hamburguer(String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
         this.descricao = descricao;
         this.titulo = titulo;
@@ -27,10 +36,10 @@ public abstract class Hamburguer implements Produto {
         this.quantidade = quantidade;
     }
 
-    public Hamburguer(AbstractFactoryCombo factoryCombo, String pontoCarne, String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
+    public Hamburguer(AbstractFactoryHamburguer factoryCombo, String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
         this(descricao, titulo, precoBase, quantidade);
         this.adicional = factoryCombo.definirAdicional(this);
-        this.carne = factoryCombo.definirCarne(pontoCarne);
+        this.carne = factoryCombo.definirCarne();
         this.pao = factoryCombo.definirPao();
     }
 
@@ -57,6 +66,4 @@ public abstract class Hamburguer implements Produto {
     public String getDescricao() {
         return descricao;
     }
-
-
 }

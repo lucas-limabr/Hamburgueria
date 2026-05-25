@@ -28,7 +28,7 @@ public class HamburgueriaApplication {
         Ingrediente pao = new Brioche("Brioche", "Pão");
         Ingrediente queijo = new Queijo("Muçarela", "Queijo");
         Ingrediente salada = new Salada("Salada");
-        Ingrediente carne = new Angus("Angus", "ao ponto", "Carne");
+        Ingrediente carne = new Angus("Angus", "Carne");
 
         ProdutoTemIngrediente addPao = new ProdutoTemIngrediente(pao, burguer);
         ProdutoTemIngrediente addCarne = new ProdutoTemIngrediente(carne, burguer);
@@ -40,9 +40,9 @@ public class HamburgueriaApplication {
         Bebida bebida = new Bebida(ovo, "Coca", valorMonetario, 600.0);
         Bebida bebida2 = new Bebida(bebida, "Guaraná Antártica", valorMonetario, 600.0);
 
-        ComboBigFactory combo = new ComboBigFactory(true, 20);
+        HamburguerBigFactory combo = new HamburguerBigFactory(true, 20);
         Hamburguer burguerCombo = new LinhaChicken("Hamburguer top", "Combo Big", valorMonetario, 1.0);
-        Carne carneCombo = combo.definirCarne("ao ponto");
+        Carne carneCombo = combo.definirCarne();
         Pao paoCombo = combo.definirPao();
 
         ProdutoTemIngrediente comboItem1 = new ProdutoTemIngrediente(carneCombo, burguerCombo);

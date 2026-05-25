@@ -18,8 +18,8 @@ public class LinhaPremium extends Hamburguer {
         super(descricao, titulo, precoBase, quantidade);
     }
 
-    public LinhaPremium(AbstractFactoryCombo factoryCombo, String pontoCarne, String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
-        super(factoryCombo, pontoCarne, descricao, titulo, precoBase, quantidade);
+    public LinhaPremium(AbstractFactoryHamburguer factoryCombo, String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
+        super(factoryCombo, descricao, titulo, precoBase, quantidade);
     }
 
     @Override
@@ -40,5 +40,10 @@ public class LinhaPremium extends Hamburguer {
 
     public BigDecimal defineValorMinimoParaPromocao() {
         return this.getPrecoBase().subtract(this.getPrecoBase().multiply(limitePercentualDesconto)).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    @Override
+    public String toString() {
+        return "LinhaPremium{ " + super.toString() + "}";
     }
 }

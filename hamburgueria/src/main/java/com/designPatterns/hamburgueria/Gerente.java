@@ -1,7 +1,6 @@
 package com.designPatterns.hamburgueria;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public class Gerente extends Setor {
     @Override
@@ -9,11 +8,12 @@ public class Gerente extends Setor {
         return "Setor responsável: Gerente";
     }
 
-    public Hamburguer cadastrarComboHamburguer(boolean ativo, int validade, String tituloCombo, String descricao, BigDecimal precoBase, Double quantidade, String pontoCarne, String promocao, BigDecimal valorDesconto) {
+    public Hamburguer cadastrarComboHamburguer(boolean ativo, int validade, String tituloCombo, String descricao, BigDecimal precoBase, Double quantidade, String promocao, BigDecimal valorDesconto, String nomeLinha) {
 
-        AbstractFactoryCombo comboFactory = this.defineComboFactory(tituloCombo, ativo, validade);
+        AbstractFactoryHamburguer comboFactory = this.defineComboFactory(tituloCombo, ativo, validade);
         PromocaoLinha desconto = this.definePromocao(promocao, valorDesconto);
-        Hamburguer hamburguer = new Combo(comboFactory, pontoCarne, descricao, tituloCombo, precoBase, quantidade);
+
+        Hamburguer hamburguer = Hamburguer.defineLinha(nomeLinha, comboFactory, descricao, tituloCombo, precoBase, quantidade);
         hamburguer.setPromocaoLinha(desconto);
 
         //persistiu no BD
@@ -33,12 +33,12 @@ public class Gerente extends Setor {
         return desconto;
     }
 
-    private AbstractFactoryCombo defineComboFactory(String tituloCombo, boolean ativo, int validade) {
-        AbstractFactoryCombo comboFactory;
+    private AbstractFactoryHamburguer defineComboFactory(String tituloCombo, boolean ativo, int validade) {
+        AbstractFactoryHamburguer comboFactory;
         if (tituloCombo.trim().equalsIgnoreCase("Combo Big")) {
-            comboFactory = new ComboBigFactory(ativo, validade);
+            comboFactory = new HamburguerBigFactory(ativo, validade);
         } else if (tituloCombo.trim().equalsIgnoreCase("Combo Friday")) {
-            comboFactory = new ComboFridayFactory(ativo, validade);
+            comboFactory = new HamburguerFridayFactory(ativo, validade);
         } else {
             throw new RuntimeException("Opção de combo não disponível");
         }

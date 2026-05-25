@@ -1,25 +1,24 @@
 package com.designPatterns.hamburgueria;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
-public class ComboBigFactory implements AbstractFactoryCombo {
+public class HamburguerBigFactory implements AbstractFactoryHamburguer {
 
     private boolean ativo;
     private LocalDateTime dataLimiteUso;
 
-    public ComboBigFactory(boolean ativo, int validade) {
+    public HamburguerBigFactory(boolean ativo, int validade) {
         this.ativo = ativo;
         this.definirDataLimiteUso(validade);
     }
 
     @Override
-    public Angus definirCarne(String ponto) {
-        return new Angus("Angus", ponto, "Carne");
+    public Angus definirCarne() {
+        return new Angus("Angus", "Carne");
     }
 
     @Override

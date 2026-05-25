@@ -13,6 +13,7 @@ public class ItemPedido {
     private String observacao;
     private Pedido pedido;
     private Produto produto;
+    private String pontoCarne;
 
     public ItemPedido(String observacao, Pedido pedido, Produto produto, Double quantidade) {
         this.observacao = observacao;

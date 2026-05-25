@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 public class Angus extends Carne{
 
-    public Angus(String tipo, String ponto, String descricao) {
-        super(tipo, ponto, descricao);
+    public Angus(String tipo, String descricao) {
+        super(tipo, descricao);
     }
 }
