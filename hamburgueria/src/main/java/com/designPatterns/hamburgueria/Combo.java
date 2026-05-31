@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 @Data
 public class Combo implements Produto {
@@ -41,5 +42,14 @@ public class Combo implements Produto {
             descricao.append(item.getDescricao());
         }
         return descricao.toString();
+    }
+
+    @Override
+    public PromocaoLinha getPromocao() {
+        return null;
+    }
+
+    public Iterator<Produto> getIteratorHamburguerNaPromocao() {
+        return new IteratorHamburguerNaPromocao(produtos);
     }
 }

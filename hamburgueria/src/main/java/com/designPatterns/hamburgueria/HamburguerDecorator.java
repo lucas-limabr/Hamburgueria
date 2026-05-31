@@ -30,4 +30,9 @@ public abstract class HamburguerDecorator implements Produto {
     public abstract BigDecimal getValorAcrescido();
 
     public abstract String getDescricaoDecorador();
+
+    @Override
+    public PromocaoLinha getPromocao() {
+        return null;
+    }
 }

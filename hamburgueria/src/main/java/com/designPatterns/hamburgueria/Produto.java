@@ -5,5 +5,8 @@ import java.math.BigDecimal;
 public interface Produto {
 
     BigDecimal getPrecoBase();
+
     String getDescricao();
+
+    PromocaoLinha getPromocao();
 }

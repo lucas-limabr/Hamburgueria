@@ -66,4 +66,9 @@ public abstract class Hamburguer implements Produto {
     public String getDescricao() {
         return descricao;
     }
+
+    @Override
+    public PromocaoLinha getPromocao(){
+        return this.getPromocaoLinha();
+    }
 }
