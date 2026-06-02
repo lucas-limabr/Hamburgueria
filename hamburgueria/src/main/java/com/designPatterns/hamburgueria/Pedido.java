@@ -10,12 +10,13 @@ import java.util.Observable;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Pedido extends Observable {
 
     private BigDecimal valorTotal;
     private LocalDateTime dataPedido;
     private BigDecimal cupomDesconto;
-    private EstadoPedido estadoPedido;
+    private EstadoPedido estadoPedido = PedidoRealizado.getInstance();
     private Cliente cliente;
     private IFormaPagamento formaPagamento;
 
