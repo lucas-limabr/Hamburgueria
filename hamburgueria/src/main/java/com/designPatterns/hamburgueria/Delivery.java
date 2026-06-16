@@ -1,11 +1,16 @@
 package com.designPatterns.hamburgueria;
 
-public class Delivery extends Entrega{
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+public class Delivery extends Entrega {
 
     private String codigo;
     private Endereco endereco;
 
-    public Delivery(String codigo, Endereco endereco, Pedido pedido){
+    public Delivery(String codigo, Endereco endereco, Pedido pedido) {
         this.codigo = codigo;
         this.endereco = endereco;
         super(pedido);
@@ -18,5 +23,10 @@ public class Delivery extends Entrega{
     @Override
     public String getDescricaoSetor() {
         return "Setor responsável: Entrega via delivery";
+    }
+
+    @Override
+    public String exibirInfoEntrega(IVisitor visitorInfoEntrega) {
+        return visitorInfoEntrega.visit(this);
     }
 }

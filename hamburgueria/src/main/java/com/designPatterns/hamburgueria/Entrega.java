@@ -19,4 +19,6 @@ public abstract class Entrega extends Setor {
     public BigDecimal calculaTaxaEntrega() {
         return null;
     }
+
+    public abstract String exibirInfoEntrega(IVisitor visitorInfoEntrega);
 }

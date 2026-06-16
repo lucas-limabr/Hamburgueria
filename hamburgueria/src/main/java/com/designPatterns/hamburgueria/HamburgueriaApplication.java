@@ -14,7 +14,7 @@ public class HamburgueriaApplication {
 
         BigDecimal valorMonetario = new BigDecimal("50.00");
 
-        Endereco e1 = new Endereco("Rua A", "80", "Paineiras", "JF", "MG", "APT 305");
+        Endereco e1 = new Endereco("Rua A", "80", "Paineiras", "3567", "JF", "MG", "APT 305");
 
         Cliente c1 = new Cliente("João", "12345678900", "11999999999", e1, null);
 
