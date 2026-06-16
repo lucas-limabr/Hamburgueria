@@ -1,18 +1,9 @@
 package com.designPatterns.hamburgueria;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
-
-@AllArgsConstructor
-@NoArgsConstructor
-public class Pix implements IFormaPagamento{
-
-    private BigDecimal taxa;
-
+public class Pix implements IFormaPagamento {
     @Override
-    public boolean processarPagamento() {
-        return true;
+    public String processarPagamento() {
+
+        return "Pagamento feito com pix";
     }
 }

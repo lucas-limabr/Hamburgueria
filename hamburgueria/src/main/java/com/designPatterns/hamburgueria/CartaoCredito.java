@@ -16,7 +16,8 @@ public class CartaoCredito implements IFormaPagamento{
     private BigDecimal taxa;
 
     @Override
-    public boolean processarPagamento() {
-        return true;
+    public String processarPagamento() {
+
+        return "Pagamento feito com cartão de crédito";
     }
 }

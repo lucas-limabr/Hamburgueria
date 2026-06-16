@@ -16,10 +16,9 @@ public class HamburgueriaApplication {
 
         Endereco e1 = new Endereco("Rua A", "80", "Paineiras", "JF", "MG", "APT 305");
 
-
         Cliente c1 = new Cliente("João", "12345678900", "11999999999", e1, null);
 
-        Pix pix = new Pix(valorMonetario);
+        Pix pix = new Pix();
 
         Pedido p1 = new Pedido(valorMonetario, LocalDateTime.now(), new BigDecimal("5.00"), null, c1, pix);
 

@@ -17,6 +17,6 @@ class DinheiroTest {
     void deveRetornarDinheiro() {
         IFormaPagamento dinheiro = FormaPagamentoFactory.obterFormaPagamento("Dinheiro");
         assertInstanceOf(Dinheiro.class, dinheiro);
-        assertTrue(dinheiro.processarPagamento());
+        assertEquals("Pagamento feito com dinheiro", dinheiro.processarPagamento());
     }
 }

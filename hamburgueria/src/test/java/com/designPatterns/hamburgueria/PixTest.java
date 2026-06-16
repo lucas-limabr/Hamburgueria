@@ -17,6 +17,6 @@ class PixTest {
     void deveRetornarPix() {
         IFormaPagamento pix = FormaPagamentoFactory.obterFormaPagamento("Pix");
         assertInstanceOf(Pix.class, pix);
-        assertTrue(pix.processarPagamento());
+        assertEquals("Pagamento feito com pix", pix.processarPagamento());
     }
 }
