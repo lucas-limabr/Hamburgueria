@@ -5,10 +5,11 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Map;
+import java.util.Objects;
 
 @NoArgsConstructor
 @Data
-public abstract class Hamburguer implements Produto {
+public abstract class Hamburguer implements Produto, Prototype {
 
     private String descricao;
     private String titulo;
@@ -19,9 +20,8 @@ public abstract class Hamburguer implements Produto {
     private Carne carne;
     private Pao pao;
 
-    public static Hamburguer defineLinha(String nomeLinha, AbstractFactoryHamburguer factoryCombo, String descricao, String titulo, BigDecimal precoBase, Double quantidade)
-    {
-        Map<String, Hamburguer> linha =  Map.of(
+    public static Hamburguer defineLinha(String nomeLinha, AbstractFactoryHamburguer factoryCombo, String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
+        Map<String, Hamburguer> linha = Map.of(
                 "Linha Premium", new LinhaPremium(factoryCombo, descricao, titulo, precoBase, quantidade),
                 "Linha Chicken", new LinhaChicken(factoryCombo, descricao, titulo, precoBase, quantidade)
         );
@@ -68,7 +68,21 @@ public abstract class Hamburguer implements Produto {
     }
 
     @Override
-    public PromocaoLinha getPromocao(){
+    public PromocaoLinha getPromocao() {
         return this.getPromocaoLinha();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Hamburguer that = (Hamburguer) o;
+        return Objects.equals(descricao, that.descricao) && Objects.equals(titulo, that.titulo) && Objects.equals(precoBase, that.precoBase) && Objects.equals(quantidade, that.quantidade);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(descricao, titulo, precoBase, quantidade);
+    }
+
+    public abstract Hamburguer clone();
 }

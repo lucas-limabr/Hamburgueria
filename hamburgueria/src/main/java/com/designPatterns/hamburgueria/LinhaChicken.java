@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @NoArgsConstructor
-public class LinhaChicken extends Hamburguer{
+public class LinhaChicken extends Hamburguer {
 
     public LinhaChicken(String descricao, String titulo, BigDecimal precoBase, Double quantidade) {
         super(descricao, titulo, precoBase, quantidade);
@@ -15,10 +15,13 @@ public class LinhaChicken extends Hamburguer{
         super(factoryCombo, descricao, titulo, precoBase, quantidade);
     }
 
+    public LinhaChicken(LinhaChicken linhaChicken) {
+        this(linhaChicken.getDescricao(), linhaChicken.getTitulo(), linhaChicken.getPrecoBase(), linhaChicken.getQuantidade());
+    }
+
     @Override
     public BigDecimal calculaPrecoNaPromocao() {
-        if(this.getPromocaoLinha() == null)
-        {
+        if (this.getPromocaoLinha() == null) {
             return this.getPrecoBase();
         }
 
@@ -28,5 +31,10 @@ public class LinhaChicken extends Hamburguer{
     @Override
     public String toString() {
         return "LinhaChicken{ " + super.toString() + "}";
+    }
+
+    @Override
+    public LinhaChicken clone() {
+        return new LinhaChicken(this);
     }
 }

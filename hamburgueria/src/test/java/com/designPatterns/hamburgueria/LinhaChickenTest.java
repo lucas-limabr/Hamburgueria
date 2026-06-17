@@ -36,4 +36,20 @@ class LinhaChickenTest {
         linhaChicken.setPromocaoLinha(descontoPercentual);
         assertEquals(new BigDecimal("34.00"), linhaChicken.calculaPrecoNaPromocao());
     }
+
+    @Test
+    @DisplayName("Apesar de um clone compartilhar do mesmo conteúdo do objeto original, ele ainda é outro objeto, ou seja, tem uma referência diferente na memória")
+    void deveRetornarObjetosDiferentesComBaseEnderecoMemoria()
+    {
+        Hamburguer linhaChickenClonada = linhaChicken.clone();
+        assertNotSame(linhaChicken, linhaChickenClonada);
+    }
+
+    @Test
+    @DisplayName("Um clone tem os mesmos valores de atributos em comparação ao objeto original. O método equals() sobrescrito da classe será executado e com base nos atributos de comparação retornará true se todos forem iguais, que é o caso")
+    void deveRetornarObjetosIguaisComBaseConteudo()
+    {
+        Hamburguer linhaChickenClonada = linhaChicken.clone();
+        assertEquals(linhaChicken, linhaChickenClonada);
+    }
 }

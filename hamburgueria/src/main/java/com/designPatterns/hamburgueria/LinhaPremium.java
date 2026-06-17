@@ -22,6 +22,10 @@ public class LinhaPremium extends Hamburguer {
         super(factoryCombo, descricao, titulo, precoBase, quantidade);
     }
 
+    public LinhaPremium(LinhaPremium linhaPremium) {
+        this(linhaPremium.getDescricao(), linhaPremium.getTitulo(), linhaPremium.getPrecoBase(), linhaPremium.getQuantidade());
+    }
+
     @Override
     public BigDecimal calculaPrecoNaPromocao() {
         if (this.getPromocaoLinha() == null) {
@@ -44,5 +48,10 @@ public class LinhaPremium extends Hamburguer {
     @Override
     public String toString() {
         return "LinhaPremium{ " + super.toString() + "}";
+    }
+
+    @Override
+    public LinhaPremium clone() {
+        return new LinhaPremium(this);
     }
 }
