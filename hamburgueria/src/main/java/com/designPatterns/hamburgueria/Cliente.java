@@ -1,6 +1,7 @@
 package com.designPatterns.hamburgueria;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.Observer;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 public class Cliente implements Observer {
 
     private String nome;

@@ -36,4 +36,17 @@ class ClienteTest {
         sacola = new Sacola(pedido, cliente);
         assertInstanceOf(PedidoRealizado.class, cliente.realizarPedido(sacola));
     }
+
+    @Test
+    @DisplayName("Deve criar cliente com builder")
+    void deveCriarClienteComBuilder() {
+        Endereco endereco = new Endereco("Rua A", "80", "Paineiras", "3567", "JF", "MG", "APT 305");
+
+        Cliente cliente = Cliente.builder().cpf("123").nome("Thaís").telefone("329984567").endereco(endereco).build();
+        assertNotNull(cliente);
+
+        assertEquals("Cliente(nome=Thaís, cpf=123, telefone=329984567, endereco=Logradouro: Rua A, 80\n" +
+                "Cep: 3567 Paineiras, JF - MG, \n" +
+                "Complemento: APT 305, formaPagamento=null)", cliente.toString());
+    }
 }
