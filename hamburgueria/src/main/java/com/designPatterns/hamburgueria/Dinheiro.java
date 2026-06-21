@@ -5,4 +5,9 @@ public class Dinheiro implements IFormaPagamento{
     public String processarPagamento() {
         return "Pagamento feito com dinheiro";
     }
+
+    @Override
+    public boolean isValido() {
+        return true;
+    }
 }
