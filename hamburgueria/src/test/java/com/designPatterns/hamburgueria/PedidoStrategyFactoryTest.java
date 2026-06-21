@@ -52,7 +52,9 @@ class PedidoStrategyFactoryTest {
         pedido.definirFormaPagamento("CartaoCredito");
         CartaoCredito cartao = (CartaoCredito) pedido.getFormaPagamento();
         cartao.setNumeroCartao("1234567890124321");
-
+        cartao.setNomeTitular("Jose Souza");
+        cartao.setValidade("12/32");
+        cartao.setCvc("123");
         assertEquals("Pagamento feito com cartão de crédito final 4321", cartao.processarPagamento());
     }
 
