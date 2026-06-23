@@ -20,6 +20,17 @@ public class Pedido extends Observable {
     private Cliente cliente;
     private IFormaPagamento formaPagamento;
 
+    public PedidoMemento salvar() {
+        return new PedidoMemento(this.valorTotal, this.cupomDesconto);
+    }
+
+    public void restaurar(PedidoMemento memento) {
+        if (memento != null) {
+            this.valorTotal = memento.getValorTotal();
+            this.cupomDesconto = memento.getCupomDesconto();
+        }
+    }
+
     public void definirFormaPagamento(String formaPagamento) {
         this.formaPagamento = FormaPagamentoFactory.obterFormaPagamento(formaPagamento);
     }
