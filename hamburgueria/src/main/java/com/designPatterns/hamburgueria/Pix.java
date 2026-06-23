@@ -6,4 +6,9 @@ public class Pix implements IFormaPagamento {
 
         return "Pagamento feito com pix";
     }
+
+    @Override
+    public boolean isValido(){
+        return true;
+    }
 }

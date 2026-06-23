@@ -20,6 +20,10 @@ public class Pedido extends Observable {
     private Cliente cliente;
     private IFormaPagamento formaPagamento;
 
+    public void definirFormaPagamento(String formaPagamento) {
+        this.formaPagamento = FormaPagamentoFactory.obterFormaPagamento(formaPagamento);
+    }
+
     public EstadoPedido setEstadoPedido(EstadoPedido estadoPedido) {
         this.estadoPedido = estadoPedido;
         setChanged();
@@ -32,7 +36,7 @@ public class Pedido extends Observable {
     }
 
     public EstadoPedido realizarPedido() {
-        return formaPagamento != null ? PedidoRealizado.getInstance() : PedidoRecusado.getInstance();
+        return (formaPagamento != null && formaPagamento.isValido())? PedidoRealizado.getInstance() : PedidoRecusado.getInstance();
     }
 
     public boolean aceitar() {
