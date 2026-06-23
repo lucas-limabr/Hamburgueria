@@ -40,7 +40,7 @@ class ClienteTest {
     @Test
     @DisplayName("Deve criar cliente com builder")
     void deveCriarClienteComBuilder() {
-        Endereco endereco = new Endereco("Rua A", "80", "Paineiras", "3567", "JF", "MG", "APT 305");
+        Endereco endereco = new Endereco("Rua A", "80", "Paineiras", "3567", "APT 305", "MG", "JF");
 
         Cliente cliente = Cliente.builder().cpf("123").nome("Thaís").telefone("329984567").endereco(endereco).build();
         assertNotNull(cliente);
