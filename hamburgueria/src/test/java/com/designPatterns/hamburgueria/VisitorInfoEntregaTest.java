@@ -25,7 +25,7 @@ class VisitorInfoEntregaTest {
     @Test
     @DisplayName("Deve exibir informações pertinentes ao tipo de entrega via delivery")
     void deveExibirInfoEntregaViaDelivery() {
-        endereco = new Endereco("Rua A", "80", "Paineiras", "3567", "JF", "MG", "APT 305");
+        endereco = new Endereco("Rua A", "80", "Paineiras", "3567", "APT 305", "MG", "JF");
         delivery = new Delivery("123", endereco, pedido);
         visitorInfoEntrega = new VisitorInfoEntrega();
         assertEquals("""

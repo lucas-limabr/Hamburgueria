@@ -1,9 +1,7 @@
 package com.designPatterns.hamburgueria;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@AllArgsConstructor
 @Data
 public class Endereco {
 
@@ -11,9 +9,17 @@ public class Endereco {
     private String numero;
     private String bairro;
     private String cep;
-    private String cidade;
-    private String uf;
     private String complemento;
+    private EnderecoFlyWeight enderecoFlyWeight;
+
+    public Endereco(String logradouro, String numero, String bairro, String cep, String complemento, String uf, String cidade) {
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.complemento = complemento;
+        this.enderecoFlyWeight = EnderecoFactory.getEndereco(uf, cidade);
+    }
 
     @Override
     public String toString() {
@@ -22,8 +28,12 @@ public class Endereco {
                 numero + "\nCep: " +
                 cep + " " +
                 bairro + ", " +
-                cidade + " - " +
-                uf + ", \nComplemento: " +
+                enderecoFlyWeight.getCidade() + " - " +
+                enderecoFlyWeight.getUf() + ", \nComplemento: " +
                 complemento;
+    }
+
+    public String getEstadoIntrinseco() {
+        return enderecoFlyWeight.toString();
     }
 }
